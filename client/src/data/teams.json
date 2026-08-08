@@ -1,0 +1,31 @@
+
+[
+  {
+    "id": 1,
+    "name": "Phoenix",
+    "color": "#ef4444",
+    "budget": 150000,
+    "remainingPoints": 150000
+  },
+  {
+    "id": 2,
+    "name": "Falcons",
+    "color": "#3b82f6",
+    "budget": 150000,
+    "remainingPoints": 150000
+  },
+  {
+    "id": 3,
+    "name": "Titans",
+    "color": "#22c55e",
+    "budget": 150000,
+    "remainingPoints": 150000
+  },
+  {
+    "id": 4,
+    "name": "Legends",
+    "color": "#eab308",
+    "budget": 150000,
+    "remainingPoints": 150000
+  }
+]

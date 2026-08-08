@@ -1,0 +1,5 @@
+# Exclude heavy node_modules dependency directory from Git and Render build context
+node_modules
+
+# Exclude local environment files containing sensitive credentials from Git repository
+.env
