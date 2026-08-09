@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { BASE_BID, calculateTeamAuctionStats } from "../../utils/auctionUtils";
-import { Trophy, Users, Coins, Sparkles, AlertCircle, ChevronDown, ChevronUp, User, Tag } from "lucide-react";
+import { Trophy, Users, Coins, Sparkles, AlertCircle, ChevronDown, ChevronUp, User, Tag, GraduationCap } from "lucide-react";
 import "../../index.css";
 
 const TEAM_ICONS = {
@@ -140,18 +140,18 @@ function TeamCard({
           </div>
         </div>
 
-        {/* Squad & Players Remaining Progress */}
+        {/* Member & Participant Progress */}
         <div className="bg-slate-950/40 border border-slate-800/60 rounded-2xl p-4 mb-4 space-y-3">
           <div className="flex items-center justify-between text-xs font-bold">
             <span className="text-slate-300 flex items-center gap-1.5 uppercase tracking-wider">
-              <Users size={14} className="text-blue-400" /> Squad ({squadCount} / {maxStudents})
+              <Users size={14} className="text-blue-400" /> Members ({squadCount} / {maxStudents})
             </span>
             <span className="text-cyan-300 font-extrabold">
               {playersRemaining} Slots Left
             </span>
           </div>
 
-          {/* Squad Progress Bar */}
+          {/* Member Progress Bar */}
           <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700/40">
             <div
               className="h-full bg-gradient-to-r from-blue-500 to-indigo-400 rounded-full transition-all duration-500"
@@ -176,7 +176,7 @@ function TeamCard({
           </div>
         </div>
 
-        {/* Collapsible "Team Squad" Live Roster Management */}
+        {/* Collapsible "Team Members" Live Roster Management */}
         <div className="mb-5 border-t border-slate-800/80 pt-4">
           <button
             onClick={() => setIsSquadOpen(!isSquadOpen)}
@@ -187,25 +187,25 @@ function TeamCard({
                 <Users size={14} />
               </div>
               <span className="uppercase tracking-wider text-white font-black">
-                Team Squad
+                Team Members
               </span>
               <span className="bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[10px] font-black px-2 py-0.5 rounded-full">
-                {squadCount} Players
+                {squadCount} Members
               </span>
             </div>
 
             <span className="flex items-center gap-1.5 text-[11px] text-slate-400 font-bold group-hover:text-slate-200">
-              {isSquadOpen ? "Hide Squad" : "View Squad"}
+              {isSquadOpen ? "Hide Members" : "View Members"}
               {isSquadOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </span>
           </button>
 
           {isSquadOpen && (
             <div className="mt-2.5 space-y-2">
-              {/* Live Squad Quick Summary Header */}
+              {/* Live Members Quick Summary Header */}
               <div className="grid grid-cols-3 gap-1.5 bg-slate-950/80 border border-slate-800/80 rounded-xl p-2 text-center text-[10px] font-extrabold text-slate-400 mb-2">
                 <div>
-                  <span className="block text-[9px] uppercase text-slate-500 font-bold">Total Players</span>
+                  <span className="block text-[9px] uppercase text-slate-500 font-bold">Total Members</span>
                   <span className="text-white text-xs font-black">{squadCount}</span>
                 </div>
                 <div>
@@ -218,13 +218,13 @@ function TeamCard({
                 </div>
               </div>
 
-              {/* Scrollable Squad List */}
+              {/* Scrollable Member List */}
               <div className="max-h-60 overflow-y-auto pr-1 space-y-2 custom-scrollbar">
                 {squadList.length === 0 ? (
                   <div className="text-xs text-slate-500 font-medium py-6 px-4 text-center bg-slate-950/40 rounded-2xl border border-slate-800/60">
                     <User className="mx-auto text-slate-700 mb-1.5" size={24} />
-                    <p className="font-semibold text-slate-400">No squad members purchased yet</p>
-                    <p className="text-[10px] text-slate-600 mt-0.5">Purchased students will appear here in real time</p>
+                    <p className="font-semibold text-slate-400">No team members purchased yet</p>
+                    <p className="text-[10px] text-slate-600 mt-0.5">Purchased participants will appear here in real time</p>
                   </div>
                 ) : (
                   squadList.map((student, idx) => {
@@ -271,10 +271,15 @@ function TeamCard({
                             <p className="font-extrabold text-xs text-white truncate leading-tight">
                               {student.name}
                             </p>
-                            <div className="flex items-center gap-1.5 mt-0.5">
+                            <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
                               <span className={`text-[9px] font-extrabold px-1.5 py-0.2 rounded-full border uppercase ${categoryColor}`}>
                                 {student.category || "General"}
                               </span>
+                              {student.batch && (
+                                <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-full border border-rose-400/30 bg-rose-400/10 text-rose-300 flex items-center gap-1">
+                                  <GraduationCap size={10} /> {student.batch}
+                                </span>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -297,7 +302,7 @@ function TeamCard({
         {/* Status Messages */}
         {squadFull && (
           <div className="bg-red-500/20 border border-red-500/40 rounded-2xl p-3 mb-4 text-center font-black text-red-200 text-sm flex items-center justify-center gap-2">
-            <AlertCircle size={16} /> 🚫 Squad Full ({maxStudents}/{maxStudents})
+            <AlertCircle size={16} /> 🚫 Member Limit Reached ({maxStudents}/{maxStudents})
           </div>
         )}
 
@@ -310,7 +315,7 @@ function TeamCard({
         {maximumAllowedBid <= currentBid && !squadFull && (
           <div className="bg-red-500/20 border border-red-500/40 rounded-2xl p-3 mb-4 text-center font-extrabold text-red-200 text-xs leading-tight flex items-center justify-center gap-2">
             <AlertCircle size={16} className="shrink-0" />
-            <span>🚫 You must reserve enough budget to complete your squad.</span>
+            <span>🚫 You must reserve enough budget to complete your team members.</span>
           </div>
         )}
       </div>

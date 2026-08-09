@@ -1,5 +1,7 @@
 import useAuctionSync from "../hooks/useAuctionSync";
-import { User, Trophy, MapPin, Clock, Award, CheckCircle, Users, Radio, Sparkles } from "lucide-react";
+import { User, Trophy, MapPin, Clock, Award, CheckCircle, Users, Radio, Sparkles, GraduationCap, PartyPopper } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import confetti from "canvas-confetti";
 
 const TEAM_ICONS = {
   1: "🦅", // Phoenix
@@ -29,6 +31,60 @@ function Display() {
     auctionCompleted,
     isConnected,
   } = useAuctionSync();
+
+  const [latestSaleCelebration, setLatestSaleCelebration] = useState(null);
+  const lastProcessedSaleRef = useRef(null);
+
+  // Trigger dramatic stage celebration & confetti cannons whenever a student is sold
+  useEffect(() => {
+    if (bidHistory && bidHistory.length > 0) {
+      const topSale = bidHistory[0];
+      const saleKey = `${topSale.student}-${topSale.team}-${topSale.amount}`;
+      if (lastProcessedSaleRef.current === null) {
+        lastProcessedSaleRef.current = saleKey;
+        return;
+      }
+
+      if (saleKey !== lastProcessedSaleRef.current) {
+        lastProcessedSaleRef.current = saleKey;
+        setLatestSaleCelebration(topSale);
+
+        // Fire continuous celebratory confetti cannons from left and right
+        try {
+          const duration = 3500;
+          const end = Date.now() + duration;
+
+          const frame = () => {
+            confetti({
+              particleCount: 7,
+              angle: 60,
+              spread: 60,
+              origin: { x: 0, y: 0.7 },
+              colors: ["#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#ec4899", "#ffffff"],
+            });
+            confetti({
+              particleCount: 7,
+              angle: 120,
+              spread: 60,
+              origin: { x: 1, y: 0.7 },
+              colors: ["#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#ec4899", "#ffffff"],
+            });
+
+            if (Date.now() < end) {
+              requestAnimationFrame(frame);
+            }
+          };
+          frame();
+        } catch { /* ignore */ }
+
+        // Dismiss celebration after 4.5s
+        const timerId = setTimeout(() => {
+          setLatestSaleCelebration(null);
+        }, 4500);
+        return () => clearTimeout(timerId);
+      }
+    }
+  }, [bidHistory]);
 
   // Sorted Leaderboard (highest remaining budget / highest players)
   const sortedTeams = [...teamData].sort((a, b) => {
@@ -99,11 +155,15 @@ function Display() {
                 <span className="px-4 py-1.5 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs md:text-sm font-extrabold rounded-full uppercase tracking-widest">
                   Student {currentStudentIndex + 1} / {totalStudents}
                 </span>
-                <span className="px-4 py-1.5 bg-amber-400/10 text-amber-400 border border-amber-400/20 text-xs md:text-sm font-black rounded-full uppercase tracking-widest flex items-center gap-1.5">
+                <span className="px-4 py-1.5 bg-amber-400/10 text-amber-400 border border-amber-400/20 text-xs md:text-sm font-black rounded-full uppercase tracking-widest flex items-center gap-1.9">
                   <Award size={16} /> {currentStudent?.category || "N/A"}
                 </span>
-              </div>
 
+            <span className="px-4 py-1.5 bg-amber-400/10 text-rose-400 border border-amber-400/20 text-xs md:text-sm font-black rounded-full uppercase tracking-widest flex items-center gap-1.9">
+                  <GraduationCap size={14} /> {currentStudent?.batch}
+                </span>
+
+</div>
               {/* Large Student Visual Container */}
               <div className="flex flex-col items-center text-center p-6 md:p-8 bg-slate-950/70 rounded-3xl border border-slate-800/90 shadow-inner">
                 <div className="w-32 h-32 md:w-44 md:h-44 rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center border-4 border-amber-400 shadow-2xl mb-4 shrink-0">
@@ -121,6 +181,7 @@ function Display() {
 
             <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-extrabold uppercase tracking-wider">
               <span>Category: <strong className="text-amber-400">{currentStudent?.category || "N/A"}</strong></span>
+               
               <span>Stage Status: <strong className="text-green-400">ON AUCTION</strong></span>
             </div>
           </div>
@@ -164,7 +225,11 @@ function Display() {
             </div>
 
             {/* Countdown Timer with Urgency Pulse */}
-            <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-2xl flex items-center justify-between backdrop-blur-xl">
+            <div className={`sticky top-4 z-40 border rounded-3xl p-6 shadow-2xl flex items-center justify-between backdrop-blur-xl transition-all duration-300 ${
+              timer <= 5
+                ? "bg-red-950/95 border-red-500 shadow-red-500/30 ring-2 ring-red-500/50"
+                : "bg-slate-900/90 border-slate-800"
+            }`}>
               <div className="flex items-center gap-4">
                 <div
                   className={`w-16 h-16 rounded-2xl flex items-center justify-center font-black border-2 transition-all ${
@@ -176,8 +241,9 @@ function Display() {
                   <Clock size={32} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase font-extrabold tracking-wider">
-                    Countdown Timer
+                  <p className="text-xs text-slate-400 uppercase font-extrabold tracking-wider flex items-center gap-1.5">
+                    <span>Countdown Timer</span>
+                    {timer <= 5 && <span className="text-[10px] bg-red-500/20 text-red-300 border border-red-500/40 px-2 py-0.5 rounded-full font-black animate-pulse">TIME LOW</span>}
                   </p>
                   <p className="text-xs text-slate-500 font-medium">Resets on incoming bids</p>
                 </div>
@@ -185,7 +251,7 @@ function Display() {
 
               <div
                 className={`text-5xl md:text-6xl font-black tracking-tight ${
-                  timer <= 5 ? "text-red-500 animate-pulse" : "text-green-400"
+                  timer <= 5 ? "text-red-400 animate-pulse scale-105" : "text-green-400"
                 }`}
               >
                 {timer}s
@@ -315,6 +381,65 @@ function Display() {
           </div>
 
         </section>
+
+      {/* Dramatic Full-Screen Stage Audience Winner Celebration Overlay */}
+      {latestSaleCelebration && (
+        <div className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center animate-in fade-in duration-300 overflow-hidden">
+          {/* Animated Gold Spotlight Rays */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-amber-500/30 via-yellow-400/20 to-amber-600/30 rounded-full blur-3xl animate-gold-spotlight pointer-events-none" />
+
+          <div className="relative z-10 max-w-3xl mx-auto space-y-6 animate-float-slow">
+            {/* Top Celebratory Header Pill */}
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-amber-400/20 border-2 border-amber-400 text-amber-300 text-sm md:text-base font-black uppercase tracking-widest shadow-2xl shadow-amber-500/40 animate-pulse">
+              <PartyPopper size={20} className="text-amber-400" />
+              <span>OFFICIALLY ACQUIRED!</span>
+              <Sparkles size={20} className="text-amber-400" />
+            </div>
+
+            {/* Giant Student Name */}
+            <div>
+              <p className="text-xs md:text-sm font-extrabold uppercase tracking-widest text-slate-400 mb-1">
+                Auction Participant
+              </p>
+              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tight drop-shadow-2xl uppercase">
+                {latestSaleCelebration.student}
+              </h1>
+              {currentStudent?.batch && (
+                <div className="mt-3 flex items-center justify-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-black rounded-full uppercase tracking-wider shadow-lg">
+                    <GraduationCap size={16} /> {currentStudent.batch}
+                  </span>
+                  {currentStudent?.category && (
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-amber-400/20 text-amber-300 border border-amber-400/40 text-xs font-black rounded-full uppercase tracking-wider shadow-lg">
+                      <Award size={16} /> {currentStudent.category}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Winning Team Banner */}
+            <div className="bg-slate-900/90 border-2 border-slate-700/80 rounded-3xl p-6 md:p-8 shadow-2xl space-y-2 backdrop-blur-2xl max-w-xl mx-auto">
+              <p className="text-xs uppercase font-black tracking-widest text-slate-400">
+                Winning Franchise Team
+              </p>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-wide text-yellow-400 drop-shadow-lg">
+                {latestSaleCelebration.team}
+              </h2>
+            </div>
+
+            {/* Winning Price Badge */}
+            <div>
+              <p className="text-xs uppercase font-black tracking-widest text-slate-400 mb-1">
+                Final Winning Bid
+              </p>
+              <div className="text-6xl md:text-8xl font-black text-emerald-400 tracking-tight drop-shadow-2xl">
+                ₹{latestSaleCelebration.amount?.toLocaleString("en-IN")}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       </div>
     </div>

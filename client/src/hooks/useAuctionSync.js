@@ -10,7 +10,7 @@ const defaultTeams = teams.map((t) => ({
   studentsWon: [],
 }));
 
-export default function useAuctionSync() {
+export default function useAuctionSync(defaultTeamId) {
   const [syncedState, setSyncedState] = useState(() => {
     const savedState = localStorage.getItem("auction_state");
     const savedTeams = localStorage.getItem("auction_teamData");
@@ -188,12 +188,29 @@ export default function useAuctionSync() {
     };
   }, []);
 
-  const placeBid = (teamId, amount) => {
-    socket.emit("PLACE_BID", { teamId, amount });
+  const placeBid = (teamIdOrAmount, amount) => {
+    let targetTeamId = defaultTeamId;
+    let bidAmount = amount;
+
+    if (amount === undefined) {
+      bidAmount = teamIdOrAmount;
+    } else {
+      targetTeamId = teamIdOrAmount;
+    }
+
+    if (!targetTeamId) {
+      targetTeamId = defaultTeamId || 1;
+    }
+
+    if (typeof bidAmount !== "number" || isNaN(bidAmount) || bidAmount <= 0) {
+      return;
+    }
+
+    socket.emit("PLACE_BID", { teamId: targetTeamId, amount: bidAmount });
     if (typeof window !== "undefined" && "BroadcastChannel" in window) {
       try {
         const bc = new BroadcastChannel("auction_channel");
-        bc.postMessage({ type: "PLACE_BID", payload: { teamId, amount } });
+        bc.postMessage({ type: "PLACE_BID", payload: { teamId: targetTeamId, amount: bidAmount } });
         bc.close();
       } catch { /* ignore */ }
     }

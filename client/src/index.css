@@ -4,3 +4,61 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2), 0 0 40px rgba(245, 158, 11, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.5), 0 0 70px rgba(245, 158, 11, 0.25);
+  }
+}
+
+@keyframes bidScale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); color: #fbbf24; }
+  100% { transform: scale(1); }
+}
+
+@keyframes goldSpotlight {
+  0% { transform: rotate(0deg) scale(1); opacity: 0.2; }
+  50% { transform: rotate(180deg) scale(1.2); opacity: 0.4; }
+  100% { transform: rotate(360deg) scale(1); opacity: 0.2; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.animate-bid-scale {
+  animation: bidScale 0.4s ease-out;
+}
+
+.animate-gold-spotlight {
+  animation: goldSpotlight 10s infinite linear;
+}
+
+.animate-float-slow {
+  animation: floatSlow 3s infinite ease-in-out;
+}
+
+/* Custom sleek scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.8);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.6);
+}

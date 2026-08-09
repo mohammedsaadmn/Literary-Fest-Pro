@@ -48,13 +48,13 @@ function Results() {
                   RESULTS & STANDINGS
                 </span>
               </h1>
-              <p className="text-xs text-slate-400 font-semibold mt-0.5">Live Franchise Squad Analytics & Auction Leaderboard</p>
+              <p className="text-xs text-slate-400 font-semibold mt-0.5">Live Franchise Member Analytics & Auction Leaderboard</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="px-4 py-2 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-extrabold text-amber-300 flex items-center gap-1.5 shadow-inner">
-              <Sparkles size={14} /> {bidHistory.length} Total Players Auctioned
+              <Sparkles size={14} /> {bidHistory.length} Total Participants Auctioned
             </span>
           </div>
         </header>
@@ -65,7 +65,7 @@ function Results() {
             <h2 className="text-xl font-black uppercase tracking-wider text-white flex items-center gap-2">
               <Shield size={20} className="text-amber-400" /> Franchise Leaderboard
             </h2>
-            <span className="text-xs text-slate-400 font-semibold">Ranked by Squad Size & Budget</span>
+            <span className="text-xs text-slate-400 font-semibold">Ranked by Member Count & Budget</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -107,7 +107,7 @@ function Results() {
 
                   <div className="space-y-3 pt-2 border-t border-slate-800 text-xs">
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400 font-bold uppercase tracking-wider">Players Bought</span>
+                      <span className="text-slate-400 font-bold uppercase tracking-wider">Participants Acquired</span>
                       <span className="text-amber-300 font-black text-base">{count} / 53</span>
                     </div>
 
@@ -127,13 +127,13 @@ function Results() {
           </div>
         </section>
 
-        {/* Selected Team Squad Roster */}
+        {/* Selected Team Member Roster */}
         <section className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-xl space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-widest text-amber-400">Roster Inspector</span>
               <h2 className="text-2xl font-black uppercase text-white flex items-center gap-2 mt-0.5">
-                <Users size={22} className="text-blue-400" /> {selectedTeam.name} Official Squad ({selectedTeamSquad.length})
+                <Users size={22} className="text-blue-400" /> {selectedTeam.name} Official Members ({selectedTeamSquad.length})
               </h2>
             </div>
 
@@ -157,7 +157,7 @@ function Results() {
 
           {selectedTeamSquad.length === 0 ? (
             <div className="text-center py-12 text-slate-500 font-semibold text-base">
-              No players currently acquired by {selectedTeam.name}.
+              No participants currently acquired by {selectedTeam.name}.
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

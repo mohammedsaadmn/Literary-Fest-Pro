@@ -14,7 +14,7 @@ function AuctionHeader() {
               ● LIVE STAGE AUCTION
             </span>
           </h1>
-          <p className="text-xs text-slate-400 font-medium">Real-Time Bidding & Squad Allocation System</p>
+          <p className="text-xs text-slate-400 font-medium">Real-Time Bidding & Member Allocation System</p>
         </div>
       </div>
 
