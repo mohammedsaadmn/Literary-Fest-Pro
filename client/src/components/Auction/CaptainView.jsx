@@ -1,5 +1,5 @@
 import useAuctionSync from "../../hooks/useAuctionSync";
-import { User, Trophy, MapPin, Coins, Users, Sparkles, AlertCircle, Shield, Award, Hash, Zap, CheckCircle2, GraduationCap } from "lucide-react";
+import { User, Trophy, MapPin, Coins, Users, Sparkles, Shield, GraduationCap } from "lucide-react";
 import teams from "../../data/teams.json";
 import { BASE_BID, calculateTeamAuctionStats } from "../../utils/auctionUtils";
 
@@ -24,48 +24,66 @@ export default function CaptainView({ teamId = 1 }) {
     placeBid: emitPlaceBid,
   } = useAuctionSync(teamId);
 
-  const myTeam = teamData.find((t) => Number(t.id) === Number(teamId)) || teams.find((t) => Number(t.id) === Number(teamId)) || teams[0];
-  const maxStudents = 53;
+  const myTeam =
+  teamData.find((t) => Number(t.id) === Number(teamId)) ||
+  teams.find((t) => Number(t.id) === Number(teamId)) ||
+  teams[0];
 
-  const {
-    remainingBudget,
-    spentPoints,
-    squadCount,
-    playersRemaining,
-    minimumBudgetReserved,
-    maximumAllowedBid,
-    squadFull,
-    seniorCount,
-    juniorCount,
-    subJuniorCount,
-    categoryFull,
-  } = calculateTeamAuctionStats(myTeam, currentStudent, maxStudents, BASE_BID);
+const maxStudents = 53;
 
-  const totalBudget = myTeam?.budget ?? 150000;
-  const budgetPercent = Math.min(100, Math.max(0, (remainingBudget / totalBudget) * 100));
-  const squadPercent = Math.min(100, Math.max(0, (squadCount / maxStudents) * 100));
+const {
+  remainingBudget,
+  spentPoints,
+  squadCount,
+  maximumAllowedBid,
+  squadFull,
+  seniorCount,
+  juniorCount,
+  subJuniorCount,
+  categoryFull,
+} = calculateTeamAuctionStats(
+  myTeam,
+  currentStudent,
+  maxStudents,
+  BASE_BID
+);
 
-  const isHighestBidder = auction.highestBidder !== null && auction.highestBidder !== undefined && Number(auction.highestBidder) === Number(myTeam.id);
-  const canBid =
-    !auctionCompleted &&
-    Boolean(currentStudent) &&
-    !squadFull &&
-    !categoryFull &&
-    !isHighestBidder;
+const totalBudget = myTeam?.budget ?? 150000;
 
-  const handlePlaceBid = (amount) => {
-    if (!canBid || isHighestBidder || auctionCompleted) return;
-    const newBid = auction.currentBid + amount;
-    if (newBid > maximumAllowedBid) return;
+const budgetPercent = Math.min(
+  100,
+  Math.max(0, (remainingBudget / totalBudget) * 100)
+);
 
-    emitPlaceBid(amount);
-  };
 
-  const rawSquad = myTeam.studentsWon || [];
-  const squadList = [...rawSquad].reverse();
-  const newestStudentId = rawSquad.length > 0 ? (rawSquad[rawSquad.length - 1].studentId || rawSquad[rawSquad.length - 1].name) : null;
+
+const isHighestBidder =
+  auction.highestBidder !== null &&
+  auction.highestBidder !== undefined &&
+  Number(auction.highestBidder) === Number(myTeam.id);
+
+const canBid =
+  !auctionCompleted &&
+  Boolean(currentStudent) &&
+  !squadFull &&
+  !categoryFull &&
+  !isHighestBidder;
+
+const handlePlaceBid = (amount) => {
+  if (!canBid || isHighestBidder || auctionCompleted) return;
+
+  const newBid = auction.currentBid + amount;
+
+  if (newBid > maximumAllowedBid) return;
+
+  emitPlaceBid(amount);
+};
+
+const rawSquad = myTeam.studentsWon || [];
+const squadList = [...rawSquad].reverse();
 
   return (
+    
     <div className="min-h-screen bg-slate-950 text-white p-3 sm:p-6 pb-12 selection:bg-amber-400 selection:text-slate-950">
       <div className="max-w-5xl mx-auto space-y-6">
         
