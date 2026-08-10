@@ -24,7 +24,7 @@ export default function CaptainView({ teamId = 1 }) {
     placeBid: emitPlaceBid,
   } = useAuctionSync(teamId);
 
-  const myTeam = teamData.find((t) => t.id === teamId) || teams.find((t) => t.id === teamId) || teams[0];
+  const myTeam = teamData.find((t) => Number(t.id) === Number(teamId)) || teams.find((t) => Number(t.id) === Number(teamId)) || teams[0];
   const maxStudents = 53;
 
   const {
@@ -45,7 +45,7 @@ export default function CaptainView({ teamId = 1 }) {
   const budgetPercent = Math.min(100, Math.max(0, (remainingBudget / totalBudget) * 100));
   const squadPercent = Math.min(100, Math.max(0, (squadCount / maxStudents) * 100));
 
-  const isHighestBidder = auction.highestBidder === myTeam.id;
+  const isHighestBidder = auction.highestBidder !== null && auction.highestBidder !== undefined && Number(auction.highestBidder) === Number(myTeam.id);
   const canBid =
     !auctionCompleted &&
     Boolean(currentStudent) &&
@@ -412,3 +412,4 @@ export default function CaptainView({ teamId = 1 }) {
     </div>
   );
 }
+

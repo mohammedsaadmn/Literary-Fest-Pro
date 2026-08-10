@@ -78,13 +78,13 @@ function Auction() {
   };
 
   function sellStudent(teamId) {
-    if (auction.highestBidder !== teamId) return;
-    const winningTeam = teamData.find((team) => team.id === teamId);
+    if (Number(auction.highestBidder) !== Number(teamId)) return;
+    const winningTeam = teamData.find((team) => Number(team.id) === Number(teamId));
 
     if (!winningTeam || !currentStudent) return;
 
     const updatedTeams = teamData.map((team) => {
-      if (team.id === teamId) {
+      if (Number(team.id) === Number(teamId)) {
         const wonStudent = {
           ...currentStudent,
           purchasePrice: auction.currentBid,
@@ -181,7 +181,7 @@ function Auction() {
   const placeBid = useCallback(
     (teamId, amount) => {
       if (roundEnded) return;
-      const team = teamData.find((t) => t.id === teamId);
+      const team = teamData.find((t) => Number(t.id) === Number(teamId));
 
       if (!team) return;
 
@@ -194,11 +194,14 @@ function Auction() {
       });
 
       setTeamsPlayed((prev) => {
-        if (prev.includes(teamId)) return prev;
+        if (prev.some((id) => Number(id) === Number(teamId))) return prev;
         return [...prev, teamId];
       });
 
       setAuction((prevAuction) => {
+        if (prevAuction.highestBidder !== null && prevAuction.highestBidder !== undefined && Number(prevAuction.highestBidder) === Number(team.id)) {
+          return prevAuction;
+        }
         const newBid = prevAuction.currentBid + amount;
         if (newBid > maximumAllowedBid) return prevAuction;
         return {

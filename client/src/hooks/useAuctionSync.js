@@ -206,7 +206,7 @@ export default function useAuctionSync(defaultTeamId) {
       return;
     }
 
-    socket.emit("PLACE_BID", { teamId: targetTeamId, amount: bidAmount });
+    const numericTeamId = Number(targetTeamId); socket.emit("PLACE_BID", { teamId: numericTeamId, amount: bidAmount });
     if (typeof window !== "undefined" && "BroadcastChannel" in window) {
       try {
         const bc = new BroadcastChannel("auction_channel");
@@ -221,3 +221,4 @@ export default function useAuctionSync(defaultTeamId) {
     placeBid,
   };
 }
+

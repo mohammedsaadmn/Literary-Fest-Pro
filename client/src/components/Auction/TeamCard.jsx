@@ -54,7 +54,7 @@ function TeamCard({
     prevSquadLengthRef.current = currentLength;
   }, [team.studentsWon]);
 
-  const isWinner = highestBidder === team.id;
+  const isWinner = highestBidder !== null && highestBidder !== undefined && Number(highestBidder) === Number(team.id);
   const isAuctionActive = Boolean(currentStudent);
 
   const totalBudget = team.budget ?? 150000;
@@ -371,3 +371,4 @@ function TeamCard({
 }
 
 export default TeamCard;
+
