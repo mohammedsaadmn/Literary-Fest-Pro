@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import confetti from "canvas-confetti";
-import { Trophy, Sparkles, User, Award } from "lucide-react";
+import { Trophy, Sparkles, Award } from "lucide-react";
 
 function WinnerModal({ show, winner }) {
   useEffect(() => {

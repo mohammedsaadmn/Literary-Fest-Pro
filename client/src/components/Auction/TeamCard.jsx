@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { BASE_BID, calculateTeamAuctionStats } from "../../utils/auctionUtils";
-import { Trophy, Users, Coins, Sparkles, AlertCircle, ChevronDown, ChevronUp, User, Tag, GraduationCap } from "lucide-react";
+import { Trophy, Users, Coins, Sparkles, AlertCircle, ChevronDown, ChevronUp, User, GraduationCap } from "lucide-react";
 import "../../index.css";
 
 const TEAM_ICONS = {
@@ -18,13 +18,13 @@ function TeamCard({
   placeBid,
   maxStudents = 53,
   currentStudent,
+  canSell = false
 }) {
   const {
     remainingBudget,
     spentPoints,
     squadCount,
     playersRemaining,
-    minimumBudgetReserved,
     maximumAllowedBid,
     squadFull,
     seniorCount,
@@ -38,21 +38,34 @@ function TeamCard({
   const prevSquadLengthRef = useRef(team.studentsWon?.length || 0);
 
   // Auto-expand squad section & highlight newest sold student for 3 seconds when squad count increases
-  useEffect(() => {
-    const currentLength = team.studentsWon?.length || 0;
-    if (currentLength > prevSquadLengthRef.current) {
-      const lastStudent = team.studentsWon[currentLength - 1];
-      if (lastStudent) {
+ useEffect(() => {
+  const currentLength = team.studentsWon?.length || 0;
+
+  if (currentLength > prevSquadLengthRef.current) {
+    const lastStudent = team.studentsWon[currentLength - 1];
+
+    if (lastStudent) {
+      const openTimer = setTimeout(() => {
         setIsSquadOpen(true);
-        setNewestSoldId(lastStudent.studentId || lastStudent.name);
-        const timer = setTimeout(() => {
-          setNewestSoldId(null);
-        }, 3000);
-        return () => clearTimeout(timer);
-      }
+      }, 0);
+
+      setNewestSoldId(lastStudent.studentId || lastStudent.name);
+
+      const timer = setTimeout(() => {
+        setNewestSoldId(null);
+      }, 3000);
+
+      prevSquadLengthRef.current = currentLength;
+
+      return () => {
+        clearTimeout(openTimer);
+        clearTimeout(timer);
+      };
     }
-    prevSquadLengthRef.current = currentLength;
-  }, [team.studentsWon]);
+  }
+
+  prevSquadLengthRef.current = currentLength;
+}, [team.studentsWon]);
 
   const isWinner = highestBidder !== null && highestBidder !== undefined && Number(highestBidder) === Number(team.id);
   const isAuctionActive = Boolean(currentStudent);
@@ -348,7 +361,7 @@ function TeamCard({
 
         {/* Sell / Winning Action Button */}
         <button
-          disabled={!isWinner || squadFull || categoryFull}
+          disabled={!canSell || !isWinner || squadFull || categoryFull}
           onClick={() => sellStudent?.(team.id)}
           className={`w-full py-3.5 px-4 rounded-2xl font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-xl flex flex-col items-center justify-center gap-0.5 cursor-pointer ${
             isWinner

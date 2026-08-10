@@ -45,11 +45,20 @@ io.on("connection", (socket) => {
 
   socket.on("SYNC_STATE", (payload) => {
     latestAuctionState = payload;
-    // Broadcast updated auction state to all other connected clients
-    socket.broadcast.emit("SYNC_STATE", payload);
+    // Broadcast updated auction state to all connected clients
+    io.emit("SYNC_STATE", payload);
   });
 
   socket.on("PLACE_BID", (payload) => {
+    if (
+      !payload ||
+      typeof payload.teamId === "undefined" ||
+      typeof payload.amount !== "number" ||
+      isNaN(payload.amount) ||
+      payload.amount <= 0
+    ) {
+      return;
+    }
     // Relay place bid event to all clients (including Auction.jsx operator)
     io.emit("PLACE_BID", payload);
   });

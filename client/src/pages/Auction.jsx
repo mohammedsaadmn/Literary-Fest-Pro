@@ -13,6 +13,8 @@ import teams from "../data/teams.json";
 import { calculateBudgetProtection } from "../utils/auctionUtils";
 
 function Auction() {
+  const [canSell, setCanSell] = useState(false);
+  const canSellRef = useRef(false);
   const [teamsPlayed, setTeamsPlayed] = useState([]);
   const [unsoldStudents, setUnsoldStudents] = useState([]);
   const [auction, setAuction] = useState({
@@ -41,7 +43,10 @@ function Auction() {
 
   const handleTimeUp = () => {
     if (auction.highestBidder) {
+      canSellRef.current = true;
+      setCanSell(true);
       sellStudent(auction.highestBidder);
+
     } else {
       unsoldStudent();
     }
@@ -78,6 +83,8 @@ function Auction() {
   };
 
   function sellStudent(teamId) {
+    if(!canSellRef.current) return;
+
     if (Number(auction.highestBidder) !== Number(teamId)) return;
     const winningTeam = teamData.find((team) => Number(team.id) === Number(teamId));
 
@@ -110,6 +117,8 @@ function Auction() {
 
     setTimeout(() => {
       setShowWinner(false);
+      canSellRef.current = false;
+      setCanSell(false);
       nextStudent(false);
     }, 2000);
 
@@ -192,11 +201,14 @@ function Auction() {
         maxStudents: MAX_STUDENTS,
         baseBid: BASE_BID,
       });
-
+      
       setTeamsPlayed((prev) => {
         if (prev.some((id) => Number(id) === Number(teamId))) return prev;
         return [...prev, teamId];
       });
+      
+      canSellRef.current = false;
+      setCanSell(false);
 
       setAuction((prevAuction) => {
         if (prevAuction.highestBidder !== null && prevAuction.highestBidder !== undefined && Number(prevAuction.highestBidder) === Number(team.id)) {
@@ -423,6 +435,7 @@ function Auction() {
                   roundEnded={roundEnded}
                   roundCompleted={roundCompleted}
                   currentStudent={currentStudent}
+                  canSell={canSell}
                 />
               ))}
           </div>

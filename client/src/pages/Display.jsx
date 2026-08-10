@@ -49,6 +49,10 @@ function Display() {
         lastProcessedSaleRef.current = saleKey;
         setLatestSaleCelebration(topSale);
 
+        setTimeout(() => {
+          setLatestSaleCelebration(null)
+        }, 3000);
+
         // Fire continuous celebratory confetti cannons from left and right
         try {
           const duration = 3500;
@@ -71,7 +75,7 @@ function Display() {
             });
 
             if (Date.now() < end) {
-              requestAnimationFrame(frame);
+              setTimeout(() => requestAnimationFrame(frame), 100);
             }
           };
           frame();
@@ -80,7 +84,8 @@ function Display() {
         // Dismiss celebration after 4.5s
         const timerId = setTimeout(() => {
           setLatestSaleCelebration(null);
-        }, 4500);
+        }, 3000);
+        
         return () => clearTimeout(timerId);
       }
     }
