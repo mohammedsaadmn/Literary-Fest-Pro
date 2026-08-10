@@ -17,7 +17,7 @@ import ControlCenter from "./pages/ControlCenter";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-gray-100">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
