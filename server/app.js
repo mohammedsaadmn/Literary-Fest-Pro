@@ -130,7 +130,7 @@ const PORT = process.env.PORT || 5000;
 
 // Deployment Config: Connect to MongoDB Atlas via process.env.MONGO_URI before launching HTTP server
 connectDB().then(() => {
-    server.listen(PORT, () => {
+  server.listen(PORT, "0.0.0.0", () => {
         console.log(`Server running on port ${PORT}`);
     });
 });
