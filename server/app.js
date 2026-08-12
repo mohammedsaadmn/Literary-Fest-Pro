@@ -17,24 +17,56 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:3000",
-  "http://10.244.186.235:5175",
-  "https://auction-zeta-rose.vercel.app"
+  "https://auction-zeta-rose.vercel.app",
 ];
+
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true;
+
+  if (allowedOrigins.includes(origin)) {
+    return true;
+  }
+
+  // Allow local network development
+  if (
+    origin.startsWith("http://10.") ||
+    origin.startsWith("http://192.168.") ||
+    /^http:\/\/172\.(1[6-9]|2[0-9]|3[0-1])\./.test(origin)
+  ) {
+    return true;
+  }
+
+  return false;
+};
+
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
+      if (isAllowedOrigin(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
       }
-
-      return callback(new Error("Not allowed by CORS"));
     },
-    credentials: true
+    credentials: true,
   })
 );
+
+app.use(express.json());
+
+const io = new Server(server, {
+  cors: {
+    origin: function (origin, callback) {
+      if (isAllowedOrigin(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by Socket.IO CORS"));
+      }
+    },
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+});
 // Deployment Config: Configure Socket.IO CORS to allow production client domain or local dev fallback
 const io = new Server(server, {
   cors: {
