@@ -13,17 +13,28 @@ const app = express();
 const server = http.createServer(app);
 
 // Deployment Config: Dynamic CORS setup to support production frontend domain via CLIENT_URL env variable while maintaining local dev support
-const allowedOrigins = process.env.CLIENT_URL
-  ? [process.env.CLIENT_URL, "http://localhost:5173", "http://localhost:3000"]
-  : "*";
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:3000",
+  "http://10.244.186.235:5175",
+  "https://auction-zeta-rose.vercel.app"
+];
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin
+      if (!origin) return callback(null, true);
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
 
-app.use(express.json());
-
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true
+  })
+);
 // Deployment Config: Configure Socket.IO CORS to allow production client domain or local dev fallback
 const io = new Server(server, {
   cors: {
