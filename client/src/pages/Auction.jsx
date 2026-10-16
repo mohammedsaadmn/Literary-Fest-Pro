@@ -417,28 +417,31 @@ function Auction() {
             <h3 className="text-xl font-black uppercase tracking-wider text-white">
               🛡️ Team Bidding Dashboards
             </h3>
-            <span className="text-xs font-semibold text-slate-400">4 Franchise Teams</span>
+            <span className="text-xs font-semibold text-slate-400">3 Franchise Teams</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...teamData]
-              .sort((a, b) => b.remainingPoints - a.remainingPoints)
-              .map((team) => (
-                <TeamCard
-                  key={team.id}
-                  team={team}
-                  currentBid={auction.currentBid}
-                  highestBidder={auction.highestBidder}
-                  placeBid={placeBid}
-                  sellStudent={sellStudent}
-                  maxStudents={MAX_STUDENTS}
-                  roundEnded={roundEnded}
-                  roundCompleted={roundCompleted}
-                  currentStudent={currentStudent}
-                  canSell={canSell}
-                />
-              ))}
-          </div>
+          
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {[...teamData]
+    .sort((a, b) => b.remainingPoints - a.remainingPoints)
+    .slice(0, 3)
+    .map((team) => (
+      <TeamCard
+        key={team.id}
+        team={team}
+        currentBid={auction.currentBid}
+        highestBidder={auction.highestBidder}
+        placeBid={placeBid}
+        sellStudent={sellStudent}
+        maxStudents={team.maxStudents ?? 50}
+        roundEnded={roundEnded}
+        roundCompleted={roundCompleted}
+        currentStudent={currentStudent}
+        canSell={canSell}
+      />
+    ))}
+</div>
+
         </div>
 
         {/* Live Bid History Feed */}

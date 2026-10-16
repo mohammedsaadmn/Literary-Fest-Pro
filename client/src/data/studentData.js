@@ -1,3 +1,4 @@
+
 import students from "./students.json";
 
 const studentData = students.map((student) => ({

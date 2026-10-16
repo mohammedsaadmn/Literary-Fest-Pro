@@ -16,7 +16,7 @@ function TeamCard({
   sellStudent,
   highestBidder,
   placeBid,
-  maxStudents = 53,
+ maxStudents = team?.maxStudents ?? 50,
   currentStudent,
   canSell = false
 }) {
@@ -173,21 +173,44 @@ function TeamCard({
           </div>
 
           {/* Category Quotas Breakdown */}
-          <div className="grid grid-cols-3 gap-2 pt-1">
-            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2 text-center">
-              <p className="text-[10px] uppercase font-bold text-slate-400">Senior</p>
-              <p className="text-sm font-black text-yellow-300 mt-0.5">{seniorCount} / 16</p>
-            </div>
-            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2 text-center">
-              <p className="text-[10px] uppercase font-bold text-slate-400">Junior</p>
-              <p className="text-sm font-black text-yellow-300 mt-0.5">{juniorCount} / 16</p>
-            </div>
-            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2 text-center">
-              <p className="text-[10px] uppercase font-bold text-slate-400">Sub Jr</p>
-              <p className="text-sm font-black text-yellow-300 mt-0.5">{subJuniorCount} / 21</p>
-            </div>
-          </div>
-        </div>
+          
+
+
+
+{/* Category Quotas Breakdown */}
+<div className="grid grid-cols-3 gap-2 pt-1">
+  <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2 text-center">
+    <p className="text-[10px] uppercase font-bold text-slate-400">
+      Senior
+    </p>
+    <p className="text-sm font-black text-yellow-300 mt-0.5">
+     {seniorCount} / {team.seniorLimit ?? 12}
+    </p>
+  </div>
+
+  <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2 text-center">
+    <p className="text-[10px] uppercase font-bold text-slate-400">
+      Junior
+    </p>
+    <p className="text-sm font-black text-yellow-300 mt-0.5">
+      {juniorCount} / {team.juniorLimit ?? 26}
+    </p>
+  </div>
+
+  <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-2 text-center">
+    <p className="text-[10px] uppercase font-bold text-slate-400">
+      Sub Junior
+    </p>
+    <p className="text-sm font-black text-yellow-300 mt-0.5">
+     {subJuniorCount} / {team.subJuniorLimit ?? 12}
+    </p>
+  </div>
+</div>
+
+
+
+
+
 
         {/* Collapsible "Team Members" Live Roster Management */}
         <div className="mb-5 border-t border-slate-800/80 pt-4">
@@ -379,6 +402,7 @@ function TeamCard({
           )}
         </button>
       </div>
+    </div>
     </div>
   );
 }
