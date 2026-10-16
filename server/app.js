@@ -68,13 +68,7 @@ const io = new Server(server, {
   },
 });
 // Deployment Config: Configure Socket.IO CORS to allow production client domain or local dev fallback
-const io = new Server(server, {
-  cors: {
-    origin: allowedOrigins,
-    methods: ["GET", "POST"],
-    credentials: true
-  }
-});
+
 
 let latestAuctionState = null;
 

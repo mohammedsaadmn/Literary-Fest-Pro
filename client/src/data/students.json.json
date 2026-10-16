@@ -1,0 +1,1502 @@
+[
+  {
+    "id": 1,
+    "batch": "10th Class",
+    "name": "MUHAMMED YASEEN MR",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 2,
+    "batch": "10th Class",
+    "name": "MUHAMMED NIHAL",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 3,
+    "batch": "10th Class",
+    "name": "SWAFWAN K",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 4,
+    "batch": "10th Class",
+    "name": "MUHAMMED SHADHIL",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 5,
+    "batch": "10th Class",
+    "name": "MUHAMMMED ABOOBACKER CH",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 6,
+    "batch": "10th Class",
+    "name": "MIHRAS",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 7,
+    "batch": "10th Class",
+    "name": "MUHAMMED SINAN PK",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 8,
+    "batch": "10th Class",
+    "name": "SAYYID MUHAMMED TWAYYIB",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 9,
+    "batch": "10th Class",
+    "name": "MUHAMMED SALAMAN GM",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 10,
+    "batch": "10th Class",
+    "name": "HASHIR AHMED KP",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 11,
+    "batch": "10th Class",
+    "name": "MUHAMMED SINAN KN",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 12,
+    "batch": "10th Class",
+    "name": "MUHAMMED TM",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 13,
+    "batch": "10th Class",
+    "name": "MUHAMMED MUJTHABA BM",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 14,
+    "batch": "10th Class",
+    "name": "MUHAMMED SINAN P",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 15,
+    "batch": "10th Class",
+    "name": "MUHAMMED SHAMMAS C",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 16,
+    "batch": "10th Class",
+    "name": "MUHAMMED HANNAN",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 17,
+    "batch": "9th Class",
+    "name": "MUHAMMED QASIM",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 18,
+    "batch": "9th Class",
+    "name": "MUHAMMED ARSHID",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 19,
+    "batch": "9th Class",
+    "name": "MUHAMMED SAHAD P",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 20,
+    "batch": "9th Class",
+    "name": "MUHAMMED SAHL M",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 21,
+    "batch": "9th Class",
+    "name": "MUHAMMED AMJAD P",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 22,
+    "batch": "9th Class",
+    "name": "MUHAMMED HISHAM M",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 23,
+    "batch": "9th Class",
+    "name": "MUHAMMED SHAHABAN",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 24,
+    "batch": "9th Class",
+    "name": "MUHAMMED FAHIZ P",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 25,
+    "batch": "9th Class",
+    "name": "MUHAMMED SINAN KP",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 26,
+    "batch": "9th Class",
+    "name": "MUHAMMED NAJIM KP",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 27,
+    "batch": "9th Class",
+    "name": "ABDULLA NURUDHEEN",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 28,
+    "batch": "9th Class",
+    "name": "MUHAMMED SULAIMAN",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 29,
+    "batch": "9th Class",
+    "name": "MUHAMMED ZIYAD P",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 30,
+    "batch": "9th Class",
+    "name": "MUHAMMED ZIYAD T",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 31,
+    "batch": "9th Class",
+    "name": "MUHAMMED BISHR MK",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 32,
+    "batch": "9th Class",
+    "name": "MUHAMMED HAFIZ V",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 33,
+    "batch": "9th Class",
+    "name": "MUHAMMED ASHFAH",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 34,
+    "batch": "9th Class",
+    "name": "MUHAMMED SUHAIL KN",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 35,
+    "batch": "8th Class",
+    "name": "MUHAMMED HAMMAD TH",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 36,
+    "batch": "8th Class",
+    "name": "SAYYID MUHAMMED AJLAN",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 37,
+    "batch": "8th Class",
+    "name": "MUHAMMED HAMDAN K",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 38,
+    "batch": "8th Class",
+    "name": "MUHAMMED SINAN P",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 39,
+    "batch": "8th Class",
+    "name": "MUNTHAZHIR HAMEEM",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 40,
+    "batch": "8th Class",
+    "name": "SAVAD M",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 41,
+    "batch": "8th Class",
+    "name": "MUHAMMED SHAH",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 42,
+    "batch": "8th Class",
+    "name": "MUHAMMED SWABEEH TC",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 43,
+    "batch": "8th Class",
+    "name": "MUHAMMED MINHAJ P",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 44,
+    "batch": "8th Class",
+    "name": "MUHAMMED ADNAN T",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 45,
+    "batch": "8th Class",
+    "name": "MUHAMMED ANAS C",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 46,
+    "batch": "8th Class",
+    "name": "SHAHID K",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 47,
+    "batch": "8th Class",
+    "name": "MUHAMMED SHAHID MK",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 48,
+    "batch": "8th Class",
+    "name": "MUHAMMED HASHIM VT",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 49,
+    "batch": "8th Class",
+    "name": "MUHAMMED HUSAIN PK",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 50,
+    "batch": "8th Class",
+    "name": "MUSTHAFA NAJEEH",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 51,
+    "batch": "8th Class",
+    "name": "MUHAMMED SHAN ASHIQ",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 52,
+    "batch": "8th Class",
+    "name": "MUHAMMED MUSTHAFA K",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 53,
+    "batch": "8th Class",
+    "name": "AHMED SINAN V",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 54,
+    "batch": "8th Class",
+    "name": "MUHAMMED NAFIH KP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 55,
+    "batch": "8th Class",
+    "name": "MUHAMMED SWADIQ K",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 56,
+    "batch": "8th Class",
+    "name": "MUHAMMED ZIYAD MP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 57,
+    "batch": "8th Class",
+    "name": "ANVAR E",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 58,
+    "batch": "8th Class",
+    "name": "MUHAMMED SHAFI H",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 59,
+    "batch": "8th Class",
+    "name": "SAYYID ADHIL SULTHAN",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 60,
+    "batch": "8th Class",
+    "name": "MUHAMMED SHAHEER KV",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 61,
+    "batch": "8th Class",
+    "name": "MUHAMMED RAEES MK",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 62,
+    "batch": "8th Class",
+    "name": "SHIRAZ",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 63,
+    "batch": "8th Class",
+    "name": "MUHAMMED SHAMMAS",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 64,
+    "batch": "8th Class",
+    "name": "AHMED HIBATHURRAHMAN",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 65,
+    "batch": "8th Class",
+    "name": "MUHAMMED RASHID",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 66,
+    "batch": "8th Class",
+    "name": "MUAHMMED RIZVAN P",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 67,
+    "batch": "8th Class",
+    "name": "ABDUSSAMAD KS",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 68,
+    "batch": "8th Class",
+    "name": "MUHAMMED FAYIZ T",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 69,
+    "batch": "8th Class",
+    "name": "MUHAMMED THAMEEM P",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 70,
+    "batch": "8th Class",
+    "name": "MUHAMMED MUSTHAFA PK",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 71,
+    "batch": "8th Class",
+    "name": "ABDUL HAMEED P",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 72,
+    "batch": "8th Class",
+    "name": "MUHAMMED SHAFI S",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 73,
+    "batch": "8th Class",
+    "name": "MUHAMMED MAQBIL KP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 74,
+    "batch": "8th Class",
+    "name": "MUHAMMED HUSAIN",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 75,
+    "batch": "7th Class",
+    "name": "SALMANUL FARIS PV",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 76,
+    "batch": "7th Class",
+    "name": "MUHAMMED SINAN VP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 77,
+    "batch": "7th Class",
+    "name": "DIHYA",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 78,
+    "batch": "7th Class",
+    "name": "MUBASHIR NASEEH",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 79,
+    "batch": "7th Class",
+    "name": "MUHAMMED ZIYAD PP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 80,
+    "batch": "7th Class",
+    "name": "MUHAMMED THMEEM MK",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 81,
+    "batch": "7th Class",
+    "name": "MUHAMMED UMAR APUHAM",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 82,
+    "batch": "7th Class",
+    "name": "MUHAMMED SWAFWAN PS",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 83,
+    "batch": "7th Class",
+    "name": "MUHAMMED RABEEH PR",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 84,
+    "batch": "7th Class",
+    "name": "MUHAMMED ADHIL PM",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 85,
+    "batch": "7th Class",
+    "name": "MUHAMMED MIDLAJ N",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 86,
+    "batch": "7th Class",
+    "name": "AHMED MIDLAJ PP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 87,
+    "batch": "7th Class",
+    "name": "MUHAMMED SINAN N",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 88,
+    "batch": "7th Class",
+    "name": "SWAFWAN GM",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 89,
+    "batch": "7th Class",
+    "name": "SAYYID NAZAL PM",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 90,
+    "batch": "7th Class",
+    "name": "MUHAMMED FAAZ VT",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 91,
+    "batch": "7th Class",
+    "name": "MUHAMMED NABEEL R",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 92,
+    "batch": "7th Class",
+    "name": "AHMED HANAN PK",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 93,
+    "batch": "7th Class",
+    "name": "AHMED SALEEL",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 94,
+    "batch": "7th Class",
+    "name": "MUHAMMED SAEED KM",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 95,
+    "batch": "7th Class",
+    "name": "MUHAMMED MUBARAK V",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 96,
+    "batch": "7th Class",
+    "name": "MUHAMMED NAFIH K",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 97,
+    "batch": "7th Class",
+    "name": "HAMIDALI FARHAN CP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 98,
+    "batch": "7th Class",
+    "name": "MUHAMMED SABEEL K",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 99,
+    "batch": "7th Class",
+    "name": "MUHAMMED RAYYAN K",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 100,
+    "batch": "7th Class",
+    "name": "MUHAMMED SHAMMAS OP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 101,
+    "batch": "7th Class",
+    "name": "MUHAMMED RABEEH P",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 102,
+    "batch": "7th Class",
+    "name": "MUHAMMED SAVAD PK",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 103,
+    "batch": "7th Class",
+    "name": "ABDUL VAJID",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 104,
+    "batch": "7th Class",
+    "name": "MUHAMMED MUSTHAFA",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 105,
+    "batch": "7th Class",
+    "name": "SAYYID MUHAMMED BISHRULHAFI VP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 106,
+    "batch": "7th Class",
+    "name": "SAYYID MUHAMMED HASHIM KP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 107,
+    "batch": "7th Class",
+    "name": "MUHAMMED HIBATHULLAH",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 108,
+    "batch": "7th Class",
+    "name": "MUHAMMED MISBAH V",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 109,
+    "batch": "7th Class",
+    "name": "MUHAMMED SAEED KP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 110,
+    "batch": "7th Class",
+    "name": "ABDUL VADOOD AP",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 111,
+    "batch": "7th Class",
+    "name": "MUHAMMED AJLAN",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 112,
+    "batch": "7th Class",
+    "name": "SHAFEEQ",
+    "place": "",
+    "category": "Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 113,
+    "batch": "6th Class",
+    "name": "MUHAMMED SAMIH",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 114,
+    "batch": "6th Class",
+    "name": "MUHAMMED JAISH KP",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 115,
+    "batch": "6th Class",
+    "name": "YASIR ARAFATH",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 116,
+    "batch": "6th Class",
+    "name": "SALMANUL FARISI S",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 117,
+    "batch": "6th Class",
+    "name": "MUHAMMED RABEEH K",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 118,
+    "batch": "6th Class",
+    "name": "SAYYID ZIYAD VT",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 119,
+    "batch": "6th Class",
+    "name": "MUJTHABA NASEEH",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 120,
+    "batch": "6th Class",
+    "name": "SHAMMAS",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 121,
+    "batch": "6th Class",
+    "name": "MUHAMMED NASHAN CK",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 122,
+    "batch": "6th Class",
+    "name": "MUHAMMED BISHR P",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 123,
+    "batch": "6th Class",
+    "name": "MUHAMMED ATHF",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 124,
+    "batch": "6th Class",
+    "name": "AHMED NASAFI NM",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 125,
+    "batch": "6th Class",
+    "name": "MUHAMMED SHAMMAS MV",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 126,
+    "batch": "6th Class",
+    "name": "BISHRULHAFI BM",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 127,
+    "batch": "6th Class",
+    "name": "SAYYID MUHAMMED RIDHAN PK",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 128,
+    "batch": "6th Class",
+    "name": "MUHAMMED RABEEHUDHEEN",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 129,
+    "batch": "6th Class",
+    "name": "MUHAMMED THAMEEM C",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 130,
+    "batch": "6th Class",
+    "name": "MUHAMMED JAFIN TV",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 131,
+    "batch": "6th Class",
+    "name": "MUHAMMED ADHIL MK",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 132,
+    "batch": "6th Class",
+    "name": "SAYYID MUHAMMED",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 133,
+    "batch": "6th Class",
+    "name": "AHMED NABEEL",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 134,
+    "batch": "6th Class",
+    "name": "MUHAMMED THAHA N",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 135,
+    "batch": "6th Class",
+    "name": "MUZZAMMIL PM",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 136,
+    "batch": "6th Class",
+    "name": "SAYYID MUHAMMED MUAWWIZ",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 137,
+    "batch": "6th Class",
+    "name": "MUHAMMED ANAS A",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 138,
+    "batch": "6th Class",
+    "name": "MUHAMMED RAZIN M",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 139,
+    "batch": "6th Class",
+    "name": "MUHAMMED AMJAD CH",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 140,
+    "batch": "6th Class",
+    "name": "AHMED BURHAN C",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 141,
+    "batch": "6th Class",
+    "name": "MUHAMMED SHAREEF CP",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 142,
+    "batch": "6th Class",
+    "name": "MUHAMMED SUHAIL PP",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 143,
+    "batch": "6th Class",
+    "name": "SHARAFUDHEEN",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 144,
+    "batch": "6th Class",
+    "name": "MUHAMMED ADHIL EP",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 145,
+    "batch": "6th Class",
+    "name": "AHMED ZIYAD",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 146,
+    "batch": "6th Class",
+    "name": "MUHAMMED ALTHAF N",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 147,
+    "batch": "6th Class",
+    "name": "AHMED ANVAR",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 148,
+    "batch": "6th Class",
+    "name": "MUHAMMED HAMMAD V",
+    "place": "",
+    "category": "Sub Junior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 149,
+    "batch": "10th Class",
+    "name": "Sayyid Muhammed rafeeq",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  },
+  {
+    "id": 150,
+    "batch": "10th Class",
+    "name": "Muhammed Sinan T",
+    "place": "",
+    "category": "Senior",
+    "exceptional": false,
+    "startingBid": 500,
+    "maxBid": 2000
+  }
+]
