@@ -1,6 +1,17 @@
+import farasztoLogo from "../assets/faraszto-logo.png";
 import { useState } from "react";
 import useAuctionSync from "../hooks/useAuctionSync";
-import { Trophy, Award, Users, Coins, CheckCircle, Shield, User, Sparkles } from "lucide-react";
+import {
+  Trophy,
+  Award,
+  Users,
+  Coins,
+  CheckCircle,
+  Shield,
+  User,
+  Sparkles,
+  Download,
+} from "lucide-react";
 
 const TEAM_ICONS = {
   1: "🦅", // Phoenix
@@ -19,6 +30,222 @@ const TEAM_COLORS = {
 function Results() {
   const { teamData, bidHistory } = useAuctionSync();
   const [selectedTeamId, setSelectedTeamId] = useState(1);
+  
+const downloadAuctionPDF = () => {
+  const requiredTeams = ["TITANS", "LEGENDS", "FALCONS"];
+
+  const esc = (value) =>
+    String(value ?? "—").replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    })[char]);
+
+  const formatMoney = (value) =>
+    value === undefined || value === null || value === ""
+      ? "—"
+      : `₹${Number(value).toLocaleString("en-IN")}`;
+
+  const reportTeams = requiredTeams.map((name) =>
+    teamData.find((team) => team.name?.toUpperCase() === name)
+  );
+
+  const missingTeams = requiredTeams.filter(
+    (_, index) => !reportTeams[index]
+  );
+
+  if (missingTeams.length) {
+    alert(`Cannot generate the report. Missing teams: ${missingTeams.join(", ")}`);
+    return;
+  }
+
+  const assignedStudents = reportTeams.flatMap((team) =>
+    (team.studentsWon || []).map((student, index) => ({
+      team: team.name,
+      student,
+      rosterNumber: index + 1,
+    }))
+  );
+
+  const studentKey = ({ student }) =>
+    String(student.id ?? student._id ?? student.studentId ?? student.name ?? "")
+      .trim()
+      .toLowerCase();
+
+  const keys = assignedStudents.map(studentKey);
+  const duplicateKeys = keys.filter(
+    (key, index) => key && keys.indexOf(key) !== index
+  );
+
+  if (duplicateKeys.length) {
+    alert(
+      "The report was not generated because duplicate student records were detected. Please check the auction data first."
+    );
+    return;
+  }
+
+  const totalAssigned = assignedStudents.length;
+
+  const teamSections = reportTeams.map((team) => {
+    const roster = team.studentsWon || [];
+    const spent =
+      Number(team.budget ?? 150000) -
+      Number(team.remainingPoints ?? 150000);
+
+    const rows = roster.map((student, index) => {
+      const name = student.name ?? student.fullName ?? "Name unavailable";
+      const category = student.category ?? student.level ?? "—";
+      const studentClass =
+        student.class ?? student.standard ?? student.grade ?? "—";
+      const place = student.place ?? student.location ?? "—";
+      const bid =
+        student.winningBid ??
+        student.soldPrice ??
+        student.finalBid ??
+        student.bidAmount;
+
+      return `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${esc(student.id ?? student.studentId ?? student._id ?? "—")}</td>
+          <td>${esc(name)}</td>
+          <td>${esc(category)}</td>
+          <td>${esc(studentClass)}</td>
+          <td>${esc(place)}</td>
+          <td>${formatMoney(bid)}</td>
+        </tr>`;
+    }).join("");
+
+    return `
+      <section class="team-section">
+        <div class="team-heading">
+          <h2>${esc(team.name)}</h2>
+          <p>Members: ${roster.length} / 50</p>
+          <p>Budget spent: ${formatMoney(spent)}</p>
+          <p>Budget remaining: ${formatMoney(team.remainingPoints)}</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Category</th>
+              <th>Class</th>
+              <th>Location</th>
+              <th>Winning Bid</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows || '<tr><td colspan="7">No students assigned yet.</td></tr>'}
+          </tbody>
+        </table>
+      </section>`;
+  }).join("");
+
+  const printWindow = window.open("", "_blank");
+
+  if (!printWindow) {
+    alert("Please allow pop-ups for this website, then try again.");
+    return;
+  }
+
+  printWindow.document.open();
+  printWindow.document.write(`
+    <!doctype html>
+    <html>
+      <head>
+        <meta charset="UTF-8" />
+        <title>FARASZTO - Final Team Allocation Report</title>
+        <style>
+          @page { size: A4 landscape; margin: 12mm; }
+          * { box-sizing: border-box; }
+          body {
+            font-family: Arial, sans-serif;
+            color: #172033;
+            margin: 0;
+            font-size: 10px;
+          }
+          header {
+            border-bottom: 3px solid #d49a00;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+          }
+          h1 { margin: 0 0 6px; font-size: 24px; }
+          header p { margin: 4px 0; color: #526078; }
+          .summary {
+            background: #f2f5fa;
+            border: 1px solid #d7deea;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+          }
+          .team-section { margin-bottom: 26px; }
+          .team-heading {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #d49a00;
+            padding: 8px 0;
+          }
+          h2 { margin: 0; font-size: 19px; }
+          .team-heading p { margin: 0; font-weight: bold; }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+          }
+          th, td {
+            border: 1px solid #cbd3df;
+            padding: 6px 7px;
+            text-align: left;
+            overflow-wrap: anywhere;
+          }
+          th { background: #e9eef6; }
+          tbody tr:nth-child(even) { background: #f7f9fc; }
+          thead { display: table-header-group; }
+          tr { break-inside: avoid; }
+          .team-section { break-inside: auto; }
+          footer {
+            margin-top: 20px;
+            border-top: 1px solid #cbd3df;
+            padding-top: 8px;
+            color: #526078;
+          }
+          @media screen {
+            body { padding: 24px; max-width: 1400px; margin: auto; }
+          }
+        </style>
+      </head>
+      <body>
+        <header>
+          <h1>FARASZTO 2K26</h1>
+          <p>OFFICIAL LIVE AUCTION — FINAL TEAM ALLOCATION</p>
+          <p>Generated: ${esc(new Date().toLocaleString("en-IN"))}</p>
+        </header>
+        <div class="summary">
+          <strong>Total students assigned: ${totalAssigned}</strong>
+          <p>This report lists the students recorded under Titans, Legends and Falcons.</p>
+        </div>
+        ${teamSections}
+        <footer>
+          Report totals are based on the current saved team rosters.
+          Verify the final auction records before official publication.
+        </footer>
+        <script>
+          window.onload = () => {
+            window.focus();
+            window.print();
+          };
+        </script>
+      </body>
+    </html>
+  `);
+  printWindow.document.close();
+};
 
   // Sorted leaderboard by squad size then budget remaining
   const leaderboard = [...teamData].sort((a, b) => {
@@ -38,12 +265,18 @@ function Results() {
         {/* Page Header */}
         <header className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-xl">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-400 via-yellow-300 to-amber-500 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-amber-500/20">
-              <Trophy size={32} className="fill-slate-950" />
-            </div>
+           
+<div className="flex h-14 w-28 shrink-0 items-center justify-center rounded-2xl border border-slate-800 bg-white p-2 shadow-lg sm:h-16 sm:w-36">
+  <img
+    src={farasztoLogo}
+    alt="FARASZTO logo"
+    className="h-full w-full object-contain"
+  />
+</div>
+
             <div>
               <h1 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-                <span>ArtSalvia 2K26</span>
+                <span>FARASZTO 2K26</span>
                 <span className="text-amber-400 text-xs px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 font-black tracking-widest">
                   RESULTS & STANDINGS
                 </span>
@@ -53,6 +286,21 @@ function Results() {
           </div>
 
           <div className="flex items-center gap-3">
+            <button
+  type="button"
+  onClick={downloadAuctionPDF}
+  className="inline-flex items-center justify-center gap-2 rounded-xl
+             border border-amber-400/40 bg-gradient-to-b
+             from-amber-400/20 to-amber-500/5 px-4 py-3
+             text-sm font-extrabold text-amber-300
+             shadow-[0_0_18px_rgba(245,158,11,0.16)]
+             transition-all hover:border-amber-300
+             hover:bg-amber-400/20 focus:outline-none
+             focus:ring-2 focus:ring-amber-400"
+>
+  <Download size={18} />
+  Download Auction PDF
+</button>
             <span className="px-4 py-2 bg-slate-950 rounded-2xl border border-slate-800 text-xs font-extrabold text-amber-300 flex items-center gap-1.5 shadow-inner">
               <Sparkles size={14} /> {bidHistory.length} Total Participants Auctioned
             </span>
@@ -108,7 +356,7 @@ function Results() {
                   <div className="space-y-3 pt-2 border-t border-slate-800 text-xs">
                     <div className="flex items-center justify-between">
                       <span className="text-slate-400 font-bold uppercase tracking-wider">Participants Acquired</span>
-                      <span className="text-amber-300 font-black text-base">{count} / 53</span>
+                      <span className="text-amber-300 font-black text-base">{count} / 50</span>
                     </div>
 
                     <div className="flex items-center justify-between">

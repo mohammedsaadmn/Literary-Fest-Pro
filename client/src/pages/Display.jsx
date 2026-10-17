@@ -1,3 +1,4 @@
+import farasztoLogo from "../assets/faraszto-logo.png";
 import useAuctionSync from "../hooks/useAuctionSync";
 import { User, Trophy, MapPin, Clock, Award, CheckCircle, Users, Radio, Sparkles, GraduationCap, PartyPopper } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -25,10 +26,11 @@ function Display() {
     currentStudent,
     bidHistory,
     timer,
+    running,
+    timerEndAt,
     auctionRound,
     totalStudents,
     unsoldStudentsCount,
-    auctionCompleted,
     isConnected,
   } = useAuctionSync();
 
@@ -105,49 +107,61 @@ function Display() {
     <div className="min-h-screen bg-slate-950 text-white p-4 md:p-8 flex flex-col justify-between selection:bg-yellow-400 selection:text-slate-900 overflow-x-hidden">
       <div className="max-w-7xl mx-auto w-full space-y-6">
         
-        {/* Stage Header */}
-        <header className="bg-slate-900/90 border border-slate-800 rounded-3xl p-4 md:p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-xl">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 via-yellow-300 to-amber-500 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-amber-500/20">
-              <Trophy size={28} className="fill-slate-950" />
-            </div>
-            <div>
-              <h1 className="text-xl md:text-3xl font-black tracking-tight uppercase text-yellow-400">
-                ART SALVIA 2K26 LIVE AUCTION
-              </h1>
-              <p className="text-xs text-slate-400 font-semibold tracking-wider uppercase">Official Stage Projector View</p>
-            </div>
-          </div>
+        
+{/* Stage Header */}
+<header className="bg-slate-900/90 border border-slate-800 rounded-3xl p-4 md:p-6 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-xl">
+  {/* FARASZTO Branding */}
+  <div className="flex min-w-0 items-center gap-3">
+    <img
+      src={farasztoLogo}
+      alt="FARASZTO logo"
+      className="h-12 w-auto max-w-[140px] shrink-0 object-contain sm:h-14 sm:max-w-[190px]"
+    />
 
-          <div className="flex items-center gap-3 flex-wrap justify-center">
-            <span className="px-4 py-2 bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 text-xs md:text-sm font-black rounded-2xl uppercase tracking-wider flex items-center gap-2 shadow-inner">
-              🏆 Round {auctionRound}
-            </span>
+    <div className="min-w-0">
+      <h1 className="text-lg sm:text-xl md:text-3xl font-black tracking-tight uppercase text-white">
+        FARASZTO
+      </h1>
+      <p className="text-[10px] sm:text-xs text-slate-400 font-semibold tracking-wider uppercase">
+        Real-Time Bidding &amp; Member Allocation System
+      </p>
+    </div>
+  </div>
 
-            <span className="px-4 py-2 bg-purple-500/10 text-purple-300 border border-purple-500/30 text-xs md:text-sm font-black rounded-2xl uppercase tracking-wider flex items-center gap-2">
-              📋 Unsold Pool: {unsoldStudentsCount}
-            </span>
+  {/* Auction Status — unchanged functionality */}
+  <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
+    <span className="px-3 sm:px-4 py-2 bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 text-xs md:text-sm font-black rounded-2xl uppercase tracking-wider flex items-center gap-2 shadow-inner">
+      🏆 Round {auctionRound}
+    </span>
 
-            <span
-              className={`px-3 py-2 text-xs font-bold rounded-2xl flex items-center gap-1.5 border ${
-                isConnected
-                  ? "bg-green-500/20 text-green-400 border-green-500/30"
-                  : "bg-red-500/20 text-red-400 border-red-500/30 animate-pulse"
-              }`}
-            >
-              <Radio size={14} className={isConnected ? "text-green-400" : "text-red-400 animate-pulse"} />
-              <span>{isConnected ? "Live Sync Active" : "Reconnecting..."}</span>
-            </span>
-          </div>
-        </header>
+    <span className="px-3 sm:px-4 py-2 bg-purple-500/10 text-purple-300 border border-purple-500/30 text-xs md:text-sm font-black rounded-2xl uppercase tracking-wider flex items-center gap-2">
+      📋 Unsold Pool: {unsoldStudentsCount}
+    </span>
 
-        {/* Completion Banner */}
-        {auctionCompleted && (
-          <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-6 rounded-3xl text-center shadow-2xl font-black text-2xl md:text-4xl tracking-wide uppercase border-2 border-emerald-400 animate-pulse">
-            🎉 AUCTION COMPLETED FOR ALL ROUNDS!
-          </div>
-        )}
+    <span
+      className={`px-3 py-2 text-xs font-bold rounded-2xl flex items-center gap-1.5 border ${
+        isConnected
+          ? "bg-green-500/20 text-green-400 border-green-500/30"
+          : "bg-red-500/20 text-red-400 border-red-500/30 animate-pulse"
+      }`}
+    >
+      <Radio
+        size={14}
+        className={
+          isConnected
+            ? "text-green-400"
+            : "text-red-400 animate-pulse"
+        }
+      />
+      <span>
+        {isConnected ? "Live Sync Active" : "Reconnecting..."}
+      </span>
+    </span>
+  </div>
+</header>
 
+
+       
         {/* Main Stage Grid */}
         <main className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           

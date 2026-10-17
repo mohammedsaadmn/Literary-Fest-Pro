@@ -1,13 +1,6 @@
 
 [
   {
-    "id": 1,
-    "name": "Phoenix",
-    "color": "#ef4444",
-    "budget": 150000,
-    "remainingPoints": 150000
-  },
-  {
     "id": 2,
     "name": "Falcons",
     "color": "#3b82f6",
