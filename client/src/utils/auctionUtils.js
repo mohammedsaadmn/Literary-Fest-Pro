@@ -83,9 +83,9 @@ export function calculateTeamAuctionStats(
 
   const categoryFull = Boolean(
     currentStudent && (
-      (currentStudent.category === "Senior" && seniorCount >= 16) ||
-      (currentStudent.category === "Junior" && juniorCount >= 16) ||
-      (currentStudent.category === "Sub Junior" && subJuniorCount >= 21)
+      (currentStudent.category === "Senior" && seniorCount >= 12) ||
+      (currentStudent.category === "Junior" && juniorCount >= 26) ||
+      (currentStudent.category === "Sub Junior" && subJuniorCount >= 12)
     )
   );
 
